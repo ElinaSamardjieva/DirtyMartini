@@ -5,7 +5,7 @@
 });
 
 // On the first layer there will be the picture with the Darts board
-var layer = new Kinetic.Layer();
+var bgLayer = new Kinetic.Layer();
 // On the second layer there will be the moving circle
 var secondLayer = new Kinetic.Layer();
 
@@ -20,10 +20,9 @@ boardImage.onload = function () {
         width: 600,
         height: 400
     });
-    layer.add(board);
-    // TO DO: Fix bug: The layer of the picture goes over the layer with the circle and blocks it!!!
-    // I tried, but I can not fix it. Even when I change the layers the result is the same!!!
-    //stage.add(layer);
+    
+    bgLayer.add(board);
+    bgLayer.draw();
 }
 
 var orbit = new Kinetic.Circle({
@@ -96,6 +95,8 @@ window.onkeydown = function (event) {
 // Adding the orbit and the circle on the second layer
 secondLayer.add(orbit);
 secondLayer.add(circle);
+
+stage.add(bgLayer);
 stage.add(secondLayer);
 animation();
 
