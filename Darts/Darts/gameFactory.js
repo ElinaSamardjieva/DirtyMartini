@@ -46,12 +46,12 @@ var gameFactory = (function() {
 				return this;
 			},
 
-			get playerOnMove(){
+			get playerOnMove() {
 				return this._playerOnMove;
 			},
 
-			set playerOnMove(value){
-				if(player === null){
+			set playerOnMove(value) {
+				if (player === null) {
 					throw new Error('Invalid null player cannot be set as current player on move');
 				}
 
@@ -176,7 +176,8 @@ var gameFactory = (function() {
 	};
 })();
 
-
+/*
+// Example:
 var newGame = gameFactory.createNewGame();
 newGame.addPlayer('Pesho');
 newGame.addPlayer('Ivan');
@@ -191,3 +192,4 @@ newGame.playerOnMove.shotsLeft = 3;
 console.log(newGame._playerOnMove.getWinningShots().join('\n'));
 
 debugger;
+*/
