@@ -33,6 +33,5 @@ var targetRadius = 250,
 
 stage.add(bgLayer);
 stage.add(secondLayer);
-aim(targetCenterX, targetCenterY, targetRadius);
-
+Aiming.aim(targetCenterX, targetCenterY, targetRadius);
 boardImage.src = 'dartboard.jpg';
