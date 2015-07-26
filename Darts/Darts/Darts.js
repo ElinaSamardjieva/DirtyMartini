@@ -25,79 +25,14 @@ boardImage.onload = function () {
     bgLayer.draw();
 }
 
-var orbit = new Kinetic.Circle({
-    x: 500,
-    y: 300,
-    radius: 120,
-    stroke: 'black'
-});
+// can be changed later. This values are for testing
+var targetRadius = 250,
+    targetCenterX = 500,
+    targetCenterY = 300; 
 
-var circle = new Kinetic.Circle({
-    x: orbit.getX() + orbit.getRadius(),
-    y: orbit.getY(),
-    radius: 5,
-    fill: 'green'
-});
-
-// The start angle with which the ball is going to change it's position
-var angle = 0;
-
-function calculateXForMovingTheBallInTheOrbit(){
-    return orbit.getX() + orbit.getRadius() * Math.cos(angle);
-}
-function calculateYForMovingTheBallInTheOrbit() {
-    return orbit.getY() + orbit.getRadius() * Math.sin(angle);
-}
-
-var // When SPACE is pressed the ball will stop on some position on the orbit of the board and 
-    // the will start to move up and down across the board.
-    isSpacePressed = false,
-    // When ENTER is pressed the ball will stop on some position on the board and 
-    // the slider with the speed will start moving.
-    isEnterPressed = false,
-    // When SHIFT is pressed the slider will stop on given speed and the dart will hit the board
-    // on some sector with points.
-    isShiftPressed = false;
-
-function animation() {
-    if (isSpacePressed) {
-        //TO DO: Logic to move the ball up and down across the board
-        return;
-    }
-    else if (isEnterPressed) {
-        // TO DO: Logic to start moving the slider with the speed of the arrow
-        return;
-    }
-    else {
-        // Moving the ball in the orbit of the Darts Board
-        circle.setX(calculateXForMovingTheBallInTheOrbit());
-        circle.setY(calculateYForMovingTheBallInTheOrbit());
-        // Updating the angle to change the position of the ball on the orbit
-        angle += Math.PI / 54;
-    }
-    secondLayer.draw();
-    requestAnimationFrame(animation);
-};
-
-// I tried with addEventListener, but nothing happend
-window.onkeydown = function (event) {
-    if (event.keyCode === 32) {
-        isSpacePressed = true;
-    }
-    else if (event.keyCode === 13) {
-        isEnterPressed = true;
-    }
-    else if (event.keyCode === 16) {
-        isShiftPressed = true;
-    }
-}
-
-// Adding the orbit and the circle on the second layer
-secondLayer.add(orbit);
-secondLayer.add(circle);
 
 stage.add(bgLayer);
 stage.add(secondLayer);
-animation();
+aim(targetCenterX, targetCenterY, targetRadius);
 
 boardImage.src = 'dartboard.jpg';
