@@ -6,10 +6,25 @@ var Aiming = (function() {
             var hindsight = new Kinetic.Circle({
                 x: 0,
                 y: 0,
-                radius: 10,
-                fill: 'green'
-            });  
+                radius: 21,
+            });
             
+            //making hindsight bakcground
+            var hindsightBackground = new Image();
+            hindsightBackground.src = 'images/olive.png';
+            hindsightBackground.onload = function() {
+                hindsight.setFillPatternImage(hindsightBackground);
+                hindsight.fillPatternScale({
+                    x: 0.08,
+                    y: 0.08
+                });
+                
+                hindsight.fillPatternOffset({
+                  x: 250,
+                  y: 250
+                });
+            }
+                                   
             var powerBar = new Kinetic.Rect({
                 x: stage.getWidth() * 90/100,
                 y: stage.getHeight() * 20/100,
@@ -40,7 +55,7 @@ var Aiming = (function() {
                     x: targetCenterX,
                     y: targetCenterY,
                     radius: targetRadius + 20,
-                    stroke: 'black'
+                    stroke: 'lightblue'
                 });
                 
                 var angle = 0, // The start angle with which the ball is going to change it's position
@@ -94,7 +109,7 @@ var Aiming = (function() {
                  
                 var line = new Kinetic.Line({
                     points: [startPointX, startPointY, endPointX, endPointY],
-                    stroke: 'black',
+                    stroke: 'lightblue',
                 });     
                 
                 secondLayer.add(line);
@@ -201,7 +216,7 @@ var Aiming = (function() {
                 return {x: hitPointX, y: hitPointY};
             }
             
-            setAngle();   
+            setAngle(); 
         }
     }
 }())

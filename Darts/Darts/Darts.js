@@ -17,8 +17,8 @@ boardImage.onload = function () {
         x: 0,
         y: 0,
         image: boardImage,
-        width: 600,
-        height: 400
+        width: stage.width(),
+        height: stage.height()
     });
     
     bgLayer.add(board);
@@ -34,4 +34,4 @@ var targetRadius = 250,
 stage.add(bgLayer);
 stage.add(secondLayer);
 Aiming.aim(targetCenterX, targetCenterY, targetRadius);
-boardImage.src = 'dartboard.jpg';
+boardImage.src = 'images/background.png';  
