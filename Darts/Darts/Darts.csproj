@@ -57,6 +57,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Aim.js" />
+    <Content Include="gameFactory.js" />
+    <Content Include="images\Thumbs.db" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -65,9 +68,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dartboard.jpg" />
     <Content Include="Darts.html" />
     <Content Include="Darts.js" />
+    <Content Include="images\background.png" />
+    <Content Include="images\olive-stick-cocktail-aperitif-green-toothpick.png" />
+    <Content Include="images\olive.png" />
+    <Content Include="images\shtick-clipart-1195437050735284924johnny_automatic_green_olive_on_a_toothpick.svg.hi.png" />
+    <Content Include="Menu.js" />
+    <Content Include="Styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

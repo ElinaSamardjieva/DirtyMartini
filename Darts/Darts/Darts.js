@@ -30,7 +30,6 @@ var targetRadius = 250,
     targetCenterX = 500,
     targetCenterY = 300; 
 
-
 stage.add(bgLayer);
 stage.add(secondLayer);
 Aiming.aim(targetCenterX, targetCenterY, targetRadius);

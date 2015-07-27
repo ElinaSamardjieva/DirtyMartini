@@ -1,0 +1,85 @@
+﻿#menu {
+    background: black url('images/menu-background.jpg') no-repeat center;
+    width: 1000px;
+    height: 600px;
+}
+
+#container {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding-top: 400px;
+}
+
+    ul li {
+        text-align: center;
+    }
+
+button {
+    background: none;
+    border: none;
+    color: white;
+    font: bolder;
+    font-size: 26px;
+}
+
+button:hover{
+    text-decoration: underline;
+}
+
+#rules, #credits {
+    margin: 0;
+    padding-top: 100px;
+    color: white;
+    display: none;
+    text-align: center;
+}
+
+    #rules h2, #credits h2 {
+        font: bolder;
+        font-size: 26px;
+        text-decoration: underline;
+    }
+
+p {
+    width: 500px;
+    text-align: justify;
+    margin-left: 270px;
+}
+
+#goodbye {
+    margin: 0;
+    padding-top: 250px;
+    color: white;
+    display: none;
+    text-align: center;
+    white-space: nowrap;
+    padding-left: 420px;
+}
+
+    #goodbye h1, #goodbye img {
+        display: inline;
+        float: left;
+    }
+
+    #goodbye h1 {
+        white-space: nowrap;
+    }
+
+    #goodbye img {
+        height: 100px;
+        width: 50px;
+    }
+
+#backButton {
+    display: none;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font: bolder;
+    padding-top: 180px;
+    padding-left: 480px;
+}
