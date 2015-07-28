@@ -186,9 +186,10 @@ var Aiming = (function() {
                         // aiming is done and returns target coordinates
                         var hitPoint = calculateHitPoint();
                         console.log(hitPoint);
+
                         // call function for calculating points according to hitPoint
                         // TODO
-        				// callback();
+        				callback(hitPoint);
                         return;
                     }
                     else {
@@ -211,12 +212,14 @@ var Aiming = (function() {
             function calculateHitPoint() {
                 var hitPointX = hindsight.getX(),
                     power = stage.height() / 2 - powerSlider.getY(),
-                    hitPointY = hindsight.getY() - power * 2;
+                    hitPointY = hindsight.getY() - power * 2 +
+                        (hindsight.getHeight() / 2) +
+                        (hindsight.getWidth() / 2);
                  
                 return {x: hitPointX, y: hitPointY};
             }
-            
-            setAngle(); 
+
+            setAngle();
         }
     }
-}())
+}());
