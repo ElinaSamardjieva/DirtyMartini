@@ -3,7 +3,7 @@
     var container = document.getElementById('container');
     menu.style.display = 'none';
     container.style.display = 'block';
-}
+};
 
 var showRules = function () {
     var navigation = document.getElementById('navigation');
@@ -14,7 +14,7 @@ var showRules = function () {
     menu.style.backgroundImage = 'none';
     var backButton = document.getElementById('backButton');
     backButton.style.display = 'block';
-}
+};
 
 var showCredits = function () {
     var navigation = document.getElementById('navigation');
@@ -25,7 +25,7 @@ var showCredits = function () {
     menu.style.backgroundImage = 'none';
     var backButton = document.getElementById('backButton');
     backButton.style.display = 'block';
-}
+};
 
 var sayGoodbye = function () {
     var navigation = document.getElementById('navigation');
@@ -34,7 +34,7 @@ var sayGoodbye = function () {
     menu.style.backgroundImage = 'none';
     var goodbyeText = document.getElementById('goodbye');
     goodbyeText.style.display = 'block';
-}
+};
 
 var showMenu = function () {
     var menu = document.getElementById('menu');
@@ -48,7 +48,7 @@ var showMenu = function () {
     rules.style.display = 'none';
     var rules = document.getElementById('credits');
     rules.style.display = 'none';
-}
+};
 
 var startButton = document.getElementById('startButton');
 startButton.addEventListener('click', startGame);

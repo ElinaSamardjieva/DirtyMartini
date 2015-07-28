@@ -3,44 +3,53 @@ var determinePointsForShot = function () {
     return {
         determineSector: function (hitPoint) {
             var sectors = stage.getAllIntersections(hitPoint),
-                pointsToSubstract,
+                lemonColors = {'gray': 1, 'yellow': 2, 'cyan': 3, 'orange': 4, 'green': 5},
+                pointsToSubstract = 0,
                 isInLemon,
                 isInInnerCircle,
                 isInOuterEye,
                 isInBullsEye,
-                isInTarget;
+                isInTarget,
+                lemonPoints;
 
             isInLemon = sectors.some(function (value) {
-                return value.fill === 'brown';
+                var isInLemon = value.attrs.fill === 'brown';
+
+                if (isInLemon) {
+                    lemonPoints = lemonColors[value.attrs.stroke];
+                }
+
+                return isInLemon;
             });
 
             isInInnerCircle = sectors.some(function (value) {
-                return value.fill === 'red';
+                return value.attrs.fill === 'red';
             });
 
             isInOuterEye = sectors.some(function (value) {
-                return value.fill === 'white';
+                return value.attrs.fill === 'white';
             });
 
             isInBullsEye = sectors.some(function (value) {
-                return value.fill === 'black';
+                return value.attrs.fill === 'black';
             });
 
-            isInTarget = sectors.length > 0;
+            isInTarget = sectors.length > 1;
 
             if (isInBullsEye) {
-                pointsToSubstract = 25;
+                pointsToSubstract = 12;
             } else if (isInOuterEye) {
-                pointsToSubstract = 15;
-            } else if (isInLemon && isInInnerCircle) {
                 pointsToSubstract = 10;
-            } else if (isInLemon) {
-                pointsToSubstract = 20;
+            } else if (isInLemon && isInInnerCircle) {
+                pointsToSubstract = lemonPoints * 2;
+            } else if (isInLemon && isInTarget) {
+                pointsToSubstract = lemonPoints * 2;
             } else if (isInInnerCircle) {
                 pointsToSubstract = 5;
             } else if (isInTarget) {
-                pointsToSubstract = 10;
+                pointsToSubstract = 7;
             }
+
             return pointsToSubstract;
         }
     }

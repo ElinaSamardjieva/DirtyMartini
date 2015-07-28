@@ -1,4 +1,8 @@
-﻿var stage = new Kinetic.Stage({
+﻿var targetRadius = 250,
+    targetCenterX = 500,
+    targetCenterY = 300;
+
+var stage = new Kinetic.Stage({
     container: 'container',
     width: 1000,
     height: 600
@@ -42,11 +46,9 @@ var secondLayer = new Kinetic.Layer();
 targetImage.src = 'images/target.png';
 
 //can be changed later. This values are for testing
-var targetRadius = 250,
-    targetCenterX = 500,
-    targetCenterY = 300; 
 
+boardCanvas.drawBoard(targetCenterX, targetCenterY, targetRadius);
 stage.add(bgLayer);
 stage.add(secondLayer);
 Aiming.aim(targetCenterX, targetCenterY, targetRadius, Shooting.shoot);
-boardImage.src = 'images/background.png';  
+boardImage.src = 'images/background.png';
