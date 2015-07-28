@@ -43,7 +43,7 @@ var determinePointsForShot = function () {
             } else if (isInLemon && isInInnerCircle) {
                 pointsToSubstract = lemonPoints * 2;
             } else if (isInLemon && isInTarget) {
-                pointsToSubstract = lemonPoints * 2;
+                pointsToSubstract = lemonPoints * 3;
             } else if (isInInnerCircle) {
                 pointsToSubstract = 5;
             } else if (isInTarget) {
