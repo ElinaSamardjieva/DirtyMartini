@@ -1,9 +1,9 @@
 // makes the animation of the arrow hitting the target
 var Shooting = (function () {
 	return {
-		shoot: function (hitPointX, hitPointY) {
+		shoot: function (hitPointX, hitPointY, callback) {
                        
-			// making arrow bakcground
+			// making arrow background
             var arrowBackground = new Image();
             arrowBackground.src = 'images/olive.png';
 			
@@ -25,7 +25,8 @@ var Shooting = (function () {
             secondLayer.add(arrow);
                  
             function animation() {
-                if (arrow.getX() - (hitPointX - arrow.height() / 2 ) < 1) { // when arrow hits targetPoint
+                if (arrow.getX() - (hitPointX - arrow.height() / 2) < 1) { // when arrow hits targetPoint
+                    callback({ hitPointX, hitPointY });
                     return;
                 }
                 else {

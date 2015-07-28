@@ -16,7 +16,7 @@ var gameFactory = (function() {
 			if (value.length < minLength || value.length > maxLength) {
 				throw new Error(variableName + ' length must be between ' + minLength + ' and ' + maxLength + ' characters.');
 			}
-		},
+		},x
 		validateNumber: function(value, variableName) {
 			if (typeof(value) !== 'number') {
 				throw new Error(variableName + ' must be a number.');
