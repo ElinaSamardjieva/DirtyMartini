@@ -25,7 +25,7 @@ var secondLayer = new Kinetic.Layer();
       bgLayer.draw();
   };
 
-//Adding the tarrget image in the second layer
+//Adding the target image in the second layer
     var targetImage = new Image();
 
       targetImage.onload = function() {
