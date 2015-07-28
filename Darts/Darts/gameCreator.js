@@ -1,8 +1,8 @@
-var gameFactory = (function() {
+var gameCreator = (function() {
 	var gameAvailable = false, // needed to avoid second game insciation;
-		playerStartingScore = 301,
-		possibleShots = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 18, 20, 25],
-		maxShot = 10,
+		playerStartingScore = 50,
+		possibleShots = [2, 3, 4, 6, 8, 9, 10, 12, 15],
+		maxShot = 15,
 		shotsPerRound = 3;
 
 	var validators = {
@@ -178,7 +178,7 @@ var gameFactory = (function() {
 
 /*
 // Example:
-var newGame = gameFactory.createNewGame();
+var newGame = gameCreator.createNewGame();
 newGame.addPlayer('Pesho');
 newGame.addPlayer('Ivan');
 newGame.addPlayer('Gosho');
