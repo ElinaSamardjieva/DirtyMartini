@@ -54,8 +54,9 @@ var Aiming = (function() {
                 var orbit = new Kinetic.Circle({
                     x: targetCenterX,
                     y: targetCenterY,
-                    radius: targetRadius + 20,
-                    stroke: 'lightblue'
+                    radius: targetRadius + 38,
+                    stroke: 'lightblue',
+                    opacity: 0
                 });
                 
                 var angle = 0, // The start angle with which the ball is going to change it's position
@@ -95,7 +96,7 @@ var Aiming = (function() {
                         isSpacePressed = true;
                     }
                 });
-                
+
                 animation();
             }
             
@@ -110,6 +111,7 @@ var Aiming = (function() {
                 var line = new Kinetic.Line({
                     points: [startPointX, startPointY, endPointX, endPointY],
                     stroke: 'lightblue',
+                    opacity: 0
                 });     
                 
                 secondLayer.add(line);
@@ -185,6 +187,8 @@ var Aiming = (function() {
                     if (isSpacePressed) {
                         // aiming is done and returns target coordinates
                         var hitPoint = calculateHitPoint();
+                        // remove olive 
+                        hindsight.remove();
                         // call function for animating arrow movement
         				callback(hitPoint.x, hitPoint.y);
                         return;
@@ -209,7 +213,7 @@ var Aiming = (function() {
             function calculateHitPoint() {
                 var hitPointX = hindsight.getX(),
                     power = stage.height() / 2 - powerSlider.getY(),
-                    hitPointY = hindsight.getY() - power * 2 +
+                    hitPointY = hindsight.getY() - power +
                         (hindsight.getHeight() / 2) +
                         (hindsight.getWidth() / 2);
                  
