@@ -48,5 +48,5 @@ var targetRadius = 250,
 
 stage.add(bgLayer);
 stage.add(secondLayer);
-Aiming.aim(targetCenterX, targetCenterY, targetRadius, determinePointsForShot.determineSector);
+Aiming.aim(targetCenterX, targetCenterY, targetRadius, Shooting.shoot);
 boardImage.src = 'images/background.png';  
