@@ -6,10 +6,10 @@ var Aiming = (function() {
             var hindsight = new Kinetic.Circle({
                 x: 0,
                 y: 0,
-                radius: 21,
+                radius: 21
             });
             
-            //making hindsight bakcground
+            // making hindsight bakcground
             var hindsightBackground = new Image();
             hindsightBackground.src = 'images/olive.png';
             hindsightBackground.onload = function() {
@@ -49,7 +49,7 @@ var Aiming = (function() {
             secondLayer.add(powerSlider);
             
             // This function animates hindsight movement around the target and stops it on keypress
-            function setAngle (resolve, reject) {  
+            function setAngle () {  
                 
                 var orbit = new Kinetic.Circle({
                     x: targetCenterX,
@@ -185,10 +185,8 @@ var Aiming = (function() {
                     if (isSpacePressed) {
                         // aiming is done and returns target coordinates
                         var hitPoint = calculateHitPoint();
-                        console.log(hitPoint);
-                        // call function for calculating points according to hitPoint
-                        // TODO
-        				// callback();
+                        // call function for animating arrow movement
+        				callback(hitPoint.x, hitPoint.y);
                         return;
                     }
                     else {
