@@ -50,17 +50,17 @@ boardCanvas.drawBoard(targetCenterX, targetCenterY, targetRadius);
 stage.add(bgLayer);
 stage.add(secondLayer);
 
-
+gameLoop.gameInit();
 // game logic
-Aiming.initialize()
-  .then(Aiming.setAngle)
-  .then(Aiming.setPosition)
-  .then(Aiming.setPower)
-  .then(Shooting.shoot)
-  .then(function (hitPointsObject) {
-    var pointsToSubstract = determinePointsForShot.determineSector(hitPointsObject);
-    // other logic here
-  })
-  .done();
+//Aiming.initialize()
+//  .then(Aiming.setAngle)
+//  .then(Aiming.setPosition)
+//  .then(Aiming.setPower)
+//  .then(Shooting.shoot)
+//  .then(function (hitPointsObject) {
+//    var pointsToSubstract = determinePointsForShot.determineSector(hitPointsObject);
+//    // other logic here
+//  })
+//  .done();
 
 boardImage.src = 'images/background.png';

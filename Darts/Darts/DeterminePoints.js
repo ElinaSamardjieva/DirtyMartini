@@ -12,8 +12,12 @@ var determinePointsForShot = function () {
                 isInTarget,
                 lemonPoints;
 
+            // Check which sectors intersect with the hitpoint, based on their fill color
+
             isInLemon = sectors.some(function (value) {
                 var isInLemon = value.attrs.fill === 'brown';
+
+                // Check which lemon the hitpoint is in, based on it's stroke color
 
                 if (isInLemon) {
                     lemonPoints = lemonColors[value.attrs.stroke];
@@ -35,6 +39,8 @@ var determinePointsForShot = function () {
             });
 
             isInTarget = sectors.length > 1;
+
+            // Based on sector priority, return the points for substraction for the player.
 
             if (isInBullsEye) {
                 pointsToSubstract = 12;

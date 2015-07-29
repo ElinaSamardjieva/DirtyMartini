@@ -1,5 +1,6 @@
-var boardCanvas;
-boardCanvas = (function () {
+// Draw the target in canvas as an invisible (and ugly) target to be able to determine the points
+
+var boardCanvas = (function () {
     return {
         drawBoard: function (targetCenterX, targetCenterY, targetRadius) {
             var boardLayer = new Kinetic.Layer(),
