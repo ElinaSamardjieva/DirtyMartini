@@ -3,74 +3,37 @@
 
 <head>
     <title>Dirty Martini game</title>
-    <link href="Styles.css" rel="stylesheet"/>
+    <link href="Styles.css" rel="stylesheet" />
     <script type="text/javascript" src="Libraries/q/q.js"></script>
 </head>
 
 <body>
-<div id="menu">
-    <ul id="navigation">
-        <li>
-            <button id="startButton">Start</button>
-        </li>
-        <li>
-            <button id="rulesButton">Rules</button>
-        </li>
-        <li>
-            <button id="creditsButton">Credits</button>
-        </li>
-        <li>
-            <button id="exitButton">Exit</button>
-        </li>
-    </ul>
-    <div id="rules">
-        <h3>Rules:</h3>
-        <strong>Welcome to the Dirty Martiny Darts Game!</strong>
-        <br/>
-
-        <p>The game is played by two players. The object of the game is one of the players to be the first to reach zero
-            from starting
-            total of 301. Each round every player has 3 darts to throw at the board and the score he hits is substracted
-            of his current
-            score. Example: If player one has 30 points left he must hit exactly 30 to win (25 and 5, three times 10
-            etc.). If he hits
-            more than 30 points with his three darts, his score remains to be 30 and gives the turn to the second
-            player. In simple terms,
-            after three darts are thrown, the throwing player subtracts the total score from his current total until he
-            reaches zero.</p>
+    <div id="menu">
+        <ul id="navigation">
+            <li>
+                <button id="startButton">Start</button>
+            </li>
+            <li>
+                <button id="rulesButton">Rules</button>
+            </li>
+            <li>
+                <button id="creditsButton">Credits</button>
+            </li>
+            <li>
+                <button id="exitButton">Exit</button>
+            </li>
+        </ul>
     </div>
-    <div id="credits">
-        <h2>Credits:</h2>
-
-        <p>
-
-        <h3>Participant - GitHub profile</h3>Nikolay Novkirishki - Novkirishki
-        <br/>Ivan Vasilev - ivanvasilev
-        <br/>Elina Samardzhieva - ElinaSamardjieva
-        <br/>Vladimir Dimov - VladimirDimov
-        <br/>Boris Stoyanov - TemplarRei
-        <br/>Bozhko Bozhkov - bbojkov
-        <br/>Andrey Kirov - Andro0
-        <br/>
-        </p>
-    </div>
-    <div id="goodbye">
-        <h1>Bye bye!</h1>
-        <img src="images/arrow.png"/>
-    </div>
-    <button id="backButton">Back</button>
-</div>
-<div id="container"></div>
-<script src="bower_components/kineticjs/kinetic.js"></script>
-<script src="DeterminePoints.js"></script>
-<script src="Aim.js"></script>
-<script src="gameCreator.js"></script>
-<script src="Shooting.js"></script>
-<script src="Menu.js"></script>
-<script src="DrawBoard.js"></script>
-<script src="gameLoop.js"></script>
-<script src="Darts.js"></script>
-
+    <div id="container"></div>
+    <script src="bower_components/kineticjs/kinetic.js"></script>
+    <script src="jQuery/jquery-2.1.4.js"></script>
+    <script src="DeterminePoints.js"></script>
+    <script src="Aim.js"></script>
+    <script src="gameCreator.js"></script>
+    <script src="Shooting.js"></script>
+    <script src="Menu.js"></script>
+    <script src="DrawBoard.js"></script>
+    <script src="gameLoop.js"></script>
+    <script src="Darts.js"></script>
 </body>
-
 </html>

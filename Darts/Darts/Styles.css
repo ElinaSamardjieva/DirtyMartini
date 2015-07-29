@@ -34,7 +34,6 @@ button:hover{
     margin: 0;
     padding-top: 100px;
     color: white;
-    display: none;
     text-align: center;
 }
 
@@ -54,7 +53,6 @@ p {
     margin: 0;
     padding-top: 250px;
     color: white;
-    display: none;
     text-align: center;
     white-space: nowrap;
     padding-left: 420px;
@@ -75,7 +73,6 @@ p {
     }
 
 #backButton {
-    display: none;
     text-align: center;
     color: white;
     font-size: 18px;

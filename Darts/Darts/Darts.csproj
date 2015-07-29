@@ -74,6 +74,8 @@
     <Content Include="images\olive-stick-cocktail-aperitif-green-toothpick.png" />
     <Content Include="images\olive.png" />
     <Content Include="images\shtick-clipart-1195437050735284924johnny_automatic_green_olive_on_a_toothpick.svg.hi.png" />
+    <Content Include="jQuery\jquery-2.1.4.js" />
+    <Content Include="jQuery\jquery-2.1.4.min.js" />
     <Content Include="Menu.js" />
     <Content Include="Styles.css" />
     <Content Include="Web.config" />
