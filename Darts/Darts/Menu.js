@@ -76,6 +76,22 @@
         var playButton = $('#playButton').remove();
     };
 
+    var startNewGame = function(){
+        var endGameScreen = document.getElementById('endGameScreen');
+        var menu = document.getElementById('menu');
+        endGameScreen.style.display = 'none';
+        menu.style.display = 'block';
+    }
+
+    var exitTheEndScreen = function () {
+        var endMessages = document.getElementById('endMessages');
+        endMessages.style.display = 'none';
+        var fireworks = document.getElementById('fireworks');
+        fireworks.style.display = 'none';
+        var goodbyeDiv = $('<div id="goodbye"><h1>Bye bye!</h1></div>').appendTo('#endGameScreen');
+        var oliveImage = $('<img id="olive" src="images/arrow.png"/>').appendTo('#endGameScreen');
+    };
+
     var startButton = document.getElementById('startButton');
     startButton.addEventListener('click', showInsertPlayerNamesFields);
 
@@ -87,4 +103,10 @@
 
     var exitButton = document.getElementById('exitButton');
     exitButton.addEventListener('click', sayGoodbye);
+
+    var newGameButton = document.getElementById('newGame');
+    newGameButton.addEventListener('click', startNewGame);
+
+    var exitEndScreen = document.getElementById('exit');
+    exitEndScreen.addEventListener('click', exitTheEndScreen);
 }());

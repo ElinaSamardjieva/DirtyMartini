@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="Aim.js" />
     <Content Include="gameFactory.js" />
+    <Content Include="images\fireworks.gif" />
     <Content Include="images\Thumbs.db" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
