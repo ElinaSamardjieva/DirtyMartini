@@ -18,6 +18,7 @@ var gameLoop = (function () {
                         newGame._playerOnMove.substractScore(pointsToSubstract);
                         if (newGame._playerOnMove._score === 0) {
                             endGame();
+                            return;
                         }
                         newGame._playerOnMove.shotsLeft -= 1;
                         // print score on SVG

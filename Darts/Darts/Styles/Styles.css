@@ -1,5 +1,5 @@
 ﻿#menu {
-    background: black url('images/menu-background.jpg') no-repeat center;
+    background: black url('../images/menu-background.jpg') no-repeat center;
     width: 1000px;
     height: 600px;
 }

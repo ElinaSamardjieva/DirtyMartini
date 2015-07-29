@@ -11,7 +11,7 @@ function svgDisplay(x, y, width, height, nameOnePlayer, nameTwoPlayer, playerObj
     function create(){
         paper = Raphael(x, y, width, height);
         board = paper.rect(0,0,width,height);
-        board.attr('fill','rgba(200,200,200,0.8)');
+        board.attr('fill',"url('images/chalkboard.png')");
         var path1 = "M0 50 H" + width;
         var path2 = "M" +width/2 + " 0 V" +height;
         horziontalLine = paper.path(path1);
@@ -31,8 +31,9 @@ function svgDisplay(x, y, width, height, nameOnePlayer, nameTwoPlayer, playerObj
 
     function addPlayerName(name, playerNumber){
         var name = paper.text(80 + (playerNumber-1)*width/2,25,name);
-        name.attr({ "font-size": 16, "font-family": "Arial" });
-        name.attr('stroke','#000');
+        name.attr({ "font-size": 28, "font-family": "Arial" });
+        name.attr('fill','#fff');
+        name.attr('stroke', '#bbb');
 
         return name;
     }
@@ -40,8 +41,9 @@ function svgDisplay(x, y, width, height, nameOnePlayer, nameTwoPlayer, playerObj
     function addPlayerScore(playerNumber){
         var t=paper.text(80 + (playerNumber-1)*width/2,90,'0');
         t.attr('text', 0);
-        t.attr({ "font-size": 20, "font-family": "Arial" });
-        t.attr('stroke', '#000');
+        t.attr({ "font-size": 28, "font-family": "Arial" });
+        t.attr('fill', '#fff');
+        t.attr('stroke', '#bbb')
 
         return t;
     }
@@ -65,5 +67,3 @@ var playerTwoScores = {score: 10};
 
 
 svgDisplay(1012, 8, 350, 600, playerOneName,playerTwoName, playerOneScores, playerTwoScores);
-
-
