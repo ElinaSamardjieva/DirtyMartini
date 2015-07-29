@@ -58,8 +58,12 @@ var gameCreator = (function() {
 				this._playerOnMove = value;
 			},
 
+			get players(){
+				return this._players;
+			},
+
 			addPlayer: function(name) {
-				validators.validateStringLength('name');
+				validators.validateStringLength(name, 2, 10, 'Player name');
 				var numberOfPalyers = this._players.Length;
 				if (numberOfPalyers > 0) {
 					for (var i = 0; i < numberOfPalyers; i++) {
@@ -128,6 +132,10 @@ var gameCreator = (function() {
 				}
 			},
 
+			get score() {
+				return this._score;
+			},
+
 			// Finds all winning shots combinations for the shots left and returns array
 			getWinningShots: function() {
 				var winningShots = [];
@@ -176,20 +184,21 @@ var gameCreator = (function() {
 	};
 })();
 
-/*
-// Example:
-var newGame = gameCreator.createNewGame();
-newGame.addPlayer('Pesho');
-newGame.addPlayer('Ivan');
-newGame.addPlayer('Gosho');
-newGame.startGame(); // This 
-newGame._playerOnMove.substractScore(270);
-newGame.nextPlayer();
-newGame._playerOnMove.substractScore(270);
-newGame.nextPlayer();
-newGame.nextPlayer();
-newGame.playerOnMove.shotsLeft = 3;
-console.log(newGame._playerOnMove.getWinningShots().join('\n'));
 
-debugger;
-*/
+
+// Example:
+// var newGame = gameCreator.createNewGame();
+// newGame.addPlayer('Pesho');
+// newGame.addPlayer('Ivan');
+// newGame.addPlayer('Gosho');
+// newGame.startGame(); // This 
+// newGame._playerOnMove.substractScore(20);
+// newGame.nextPlayer();
+// newGame._playerOnMove.substractScore(20);
+// newGame.nextPlayer();
+// newGame.nextPlayer();
+// newGame.playerOnMove.shotsLeft = 3;
+// console.log(newGame.playerOnMove.getWinningShots().join('\n'));
+// debugger;
+
+module.exports = gameCreator;
