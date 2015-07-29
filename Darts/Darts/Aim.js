@@ -67,6 +67,8 @@ var Aiming = (function () {
             secondLayer.add(powerBar);
             secondLayer.add(powerSlider);
             
+            hindsight.opacity(1);
+            
             return Q();
         },
         // This function animates hindsight movement around the target and stops it on keypress
@@ -139,7 +141,7 @@ var Aiming = (function () {
                     // aiming is done and returns target coordinates
                     var hitPoint = calculateHitPoint();
                     // remove olive   
-                    //hindsight.opacity(0);            
+                    hindsight.opacity(0);            
                     deferred.resolve(hitPoint);
                     return;
                 }
