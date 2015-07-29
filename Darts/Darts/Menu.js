@@ -1,4 +1,18 @@
-﻿var startGame = function () {
+﻿var showInsertPlayerNamesFields = function () {
+    var navigation = document.getElementById('navigation');
+    navigation.style.display = 'none';
+    var menu = document.getElementById('menu');
+    menu.style.backgroundImage = 'none';
+    var text = $('<h3 id="insertNames"/>').text('Insert player names:').appendTo('#menu');
+    var firstPlayer = $('<input type="text" value="Player 1"></input>').appendTo('#menu');
+    var secondPlayer = $('<input type="text" value="Player 2"></input>').appendTo('#menu');
+    var playButton = $('<button id="playButton" />').text('Play').appendTo('#menu');
+    var backButton = $('<button id="backButton" />').text('Back').css({ "margin-left": "40px", "float": "left" }).appendTo('#menu');
+    playButton.on('click', startGame);
+    backButton.on('click', showMenu);
+}
+
+var startGame = function () {
     var menu = document.getElementById('menu');
     var container = document.getElementById('container');
     menu.style.display = 'none';
@@ -21,8 +35,6 @@ var showRules = function () {
                                          'after three darts are thrown, the throwing player subtracts the total score from his' +
                                          ' current total until he reaches zero.').appendTo('#rules');
     var backButton1 = $('<button id="backButton" />').text('Back').appendTo('#menu');
-    
-    var backButton = document.getElementById('backButton');
     backButton.addEventListener('click', showMenu);
 };
 
@@ -37,8 +49,6 @@ var showCredits = function () {
                              '<br/>Vladimir Dimov - VladimirDimov<br/>Boris Stoyanov - TemplarRei' +
                              '<br/>Bozhko Bozhkov - bbojkov<br/>Andrey Kirov - Andro0<br/></p>').appendTo('#credits');
     var backButton1 = $('<button id="backButton" />').text('Back').appendTo('#menu');
-    
-    var backButton = document.getElementById('backButton');
     backButton.addEventListener('click', showMenu);
 };
 
@@ -60,10 +70,13 @@ var showMenu = function () {
     var backButton = $('#backButton').remove();
     var rules = $('#rules').remove();
     var credits = $('#credits').remove();
+    var insertPlayersText = $('#insertNames').remove();
+    var playersInputFields = $('input').remove();
+    var playButton = $('#playButton').remove();
 };
 
 var startButton = document.getElementById('startButton');
-startButton.addEventListener('click', startGame);
+startButton.addEventListener('click', showInsertPlayerNamesFields);
 
 var rulesButton = document.getElementById('rulesButton');
 rulesButton.addEventListener('click', showRules);
@@ -73,6 +86,3 @@ creditsButton.addEventListener('click', showCredits);
 
 var exitButton = document.getElementById('exitButton');
 exitButton.addEventListener('click', sayGoodbye);
-
-var backButton = document.getElementById('backButton');
-backButton.addEventListener('click', showMenu);
