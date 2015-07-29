@@ -20,7 +20,10 @@ var showRules = function () {
                                          ' his score remains to be 30 and gives the turn to the second player. In simple terms,' +
                                          'after three darts are thrown, the throwing player subtracts the total score from his' +
                                          ' current total until he reaches zero.').appendTo('#rules');
-    var backButton = $('<button id="backButton" />').text('Back').appendTo('#menu');
+    var backButton1 = $('<button id="backButton" />').text('Back').appendTo('#menu');
+    
+    var backButton = document.getElementById('backButton');
+    backButton.addEventListener('click', showMenu);
 };
 
 var showCredits = function () {
@@ -33,7 +36,10 @@ var showCredits = function () {
                              '<br/>Ivan Vasilev - ivanvasilev<br/>Elina Samardzhieva - ElinaSamardjieva' +
                              '<br/>Vladimir Dimov - VladimirDimov<br/>Boris Stoyanov - TemplarRei' +
                              '<br/>Bozhko Bozhkov - bbojkov<br/>Andrey Kirov - Andro0<br/></p>').appendTo('#credits');
-    var backButton = $('<button id="backButton" />').text('Back').appendTo('#menu');
+    var backButton1 = $('<button id="backButton" />').text('Back').appendTo('#menu');
+    
+    var backButton = document.getElementById('backButton');
+    backButton.addEventListener('click', showMenu);
 };
 
 var sayGoodbye = function () {
