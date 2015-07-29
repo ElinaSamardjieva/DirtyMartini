@@ -1,8 +1,41 @@
 // aiming logic
 var Aiming = (function () {
     var hindsight,
-        powerBar,
-        powerSlider;
+        powerBar = new Kinetic.Rect({
+            stroke: 'black',
+            fillLinearGradientColorStops: [0, 'red', 0.5, 'rgb(37,204,4)', 1, 'yellow'],
+        }),
+        powerSlider = new Kinetic.Rect({
+            fill: 'black',
+            stroke: 'black'
+        });
+        
+        var HINDSIGHT_RADIUS = 21,
+            HINDSIGHT_IMAGE_SCALE = 0.08,
+            HINDSIGHT_IMAGE_OFFSET = 250,
+            POWERSLIDER_HEIGHT = 5;
+
+        hindsight = new Kinetic.Circle({
+            x: 0,
+            y: 0,
+            radius: HINDSIGHT_RADIUS,
+        });
+        
+        // making hindsight bakcground
+        var hindsightBackground = new Image();
+        hindsightBackground.src = 'images/olive.png';
+        hindsightBackground.onload = function () {
+            hindsight.setFillPatternImage(hindsightBackground);
+            hindsight.fillPatternScale({
+                x: HINDSIGHT_IMAGE_SCALE,
+                y: HINDSIGHT_IMAGE_SCALE
+            });
+
+            hindsight.fillPatternOffset({
+                x: HINDSIGHT_IMAGE_OFFSET,
+                y: HINDSIGHT_IMAGE_OFFSET
+            });
+        }
 
     function calculateHitPoint() {
         var hitPointX = hindsight.getX(),
@@ -15,91 +48,47 @@ var Aiming = (function () {
     }
 
     return {
-        initialize: function initialize() {
-            var HINDSIGHT_RADIUS = 21,
-                HINDSIGHT_IMAGE_SCALE = 0.08,
-                HINDSIGHT_IMAGE_OFFSET = 250,
-                POWERSLIDER_HEIGHT = 5;
-
-            hindsight = new Kinetic.Circle({
-                x: 0,
-                y: 0,
-                radius: HINDSIGHT_RADIUS
-            });
+        initialize: function initialize() {                       
             
-            // making hindsight bakcground
-            var hindsightBackground = new Image();
-            hindsightBackground.src = 'images/olive.png';
-            hindsightBackground.onload = function () {
-                hindsight.setFillPatternImage(hindsightBackground);
-                hindsight.fillPatternScale({
-                    x: HINDSIGHT_IMAGE_SCALE,
-                    y: HINDSIGHT_IMAGE_SCALE
-                });
-
-                hindsight.fillPatternOffset({
-                    x: HINDSIGHT_IMAGE_OFFSET,
-                    y: HINDSIGHT_IMAGE_OFFSET
-                });
-            }
-
-
-            powerBar = new Kinetic.Rect({
-                x: stage.getWidth() * 90 / 100,
-                y: stage.getHeight() * 20 / 100,
-                width: stage.getWidth() * 5 / 100,
-                height: stage.getHeight() * 60 / 100,
-                fillLinearGradientStartPoint: { x: 0, y: 0 },
-                fillLinearGradientEndPoint: { x: 0, y: stage.getHeight() * 60 / 100 },
-                fillLinearGradientColorStops: [0, 'red', 0.5, 'rgb(37,204,4)', 1, 'yellow'],
-                stroke: 'black'
-            });
-
-            powerSlider = new Kinetic.Rect({
-                x: powerBar.getX() - 5,
-                y: stage.height() / 2,
-                width: powerBar.width() + 10,
-                height: POWERSLIDER_HEIGHT,
-                fill: 'black',
-                stroke: 'black'
-            });
-
+            powerBar.x(stage.getWidth() * 90 / 100);
+            powerBar.y(stage.getHeight() * 20 / 100);
+            powerBar.width(stage.getWidth() * 5 / 100);
+            powerBar.height(stage.getHeight() * 60 / 100);
+            powerBar.fillLinearGradientStartPoint({ x: 0, y: 0 });
+            powerBar.fillLinearGradientEndPoint({ x: 0, y: stage.getHeight() * 60 / 100 });            
+            
+            powerSlider.x(powerBar.getX() - 5);
+            powerSlider.y(stage.height() / 2);
+            powerSlider.width(powerBar.width() + 10);
+            powerSlider.height(POWERSLIDER_HEIGHT);
+            
+            secondLayer.clear();                
+            secondLayer.add(hindsight);
             secondLayer.add(powerBar);
             secondLayer.add(powerSlider);
-
+            
             return Q();
         },
         // This function animates hindsight movement around the target and stops it on keypress
         setAngle: function setAngle() {
-            var ORBIT_ADDITIONAL_RADIUS = 38,
+            var ORBIT_RADIUS = targetRadius + 38,
                 HINDSIGHT_MOVING_SPEED = 50,
                 deferred = Q.defer(),
-                orbit = new Kinetic.Circle({
-                    x: targetCenterX,
-                    y: targetCenterY,
-                    radius: targetRadius + ORBIT_ADDITIONAL_RADIUS,
-                    stroke: 'lightblue',
-                    opacity: 0
-                }),
                 angle = 0, // The start angle with which the ball is going to change it's position
                 isSpacePressed = false;
 
-            secondLayer.add(orbit);
-            secondLayer.add(hindsight);
-
             function calculateXForMovingTheBallInTheOrbit() {
-                return orbit.getX() + orbit.getRadius() * Math.cos(angle);
+                return targetCenterX + ORBIT_RADIUS * Math.cos(angle);
             }
 
             function calculateYForMovingTheBallInTheOrbit() {
-                return orbit.getY() + orbit.getRadius() * Math.sin(angle);
+                return targetCenterY + ORBIT_RADIUS * Math.sin(angle);
             }
 
             function animation() {
                 if (isSpacePressed) {
-                    // call the next function and stop this one
-                    // return;
                     deferred.resolve();
+                    return;
                 }
                 else {
                     hindsight.setX(calculateXForMovingTheBallInTheOrbit());
@@ -107,9 +96,10 @@ var Aiming = (function () {
                        
                     // Updating the angle to change the position of the ball on the orbit
                     angle += Math.PI / HINDSIGHT_MOVING_SPEED;
+                    
+                    secondLayer.draw();
                 }
-
-                secondLayer.draw();
+                
                 requestAnimationFrame(animation);
             };
 
@@ -120,6 +110,7 @@ var Aiming = (function () {
             });
 
             animation();
+            
             return deferred.promise;
         },
         // This function animates power bar movement and stops it on keypress
@@ -147,10 +138,10 @@ var Aiming = (function () {
                 if (isSpacePressed) {
                     // aiming is done and returns target coordinates
                     var hitPoint = calculateHitPoint();
-                    // remove olive 
-                    hindsight.remove();
-                    // call function for animating arrow movement
+                    // remove olive   
+                    hindsight.opacity(0);            
                     deferred.resolve(hitPoint);
+                    return;
                 }
                 else {
                     powerSlider.setY(calculateYForMovingThePowerSlider());
@@ -164,8 +155,10 @@ var Aiming = (function () {
                 if (event.keyCode === 32) {
                     isSpacePressed = true;
                 }
-            });
+            });           
 
+            //secondLayer.add(hindsight);
+            
             animation();
             return deferred.promise;
         },
@@ -177,14 +170,8 @@ var Aiming = (function () {
                 startPointY = hindsight.getY(),
                 endPointX = targetCenterX * 2 - startPointX,
                 endPointY = targetCenterY * 2 - startPointY,
-                isSpacePressed = false,
-                line = new Kinetic.Line({
-                    points: [startPointX, startPointY, endPointX, endPointY],
-                    stroke: 'lightblue',
-                    opacity: 0
-                });
-
-            secondLayer.add(line);
+                isSpacePressed = false;
+                
             secondLayer.add(hindsight);
                 
             // moving logic
@@ -214,6 +201,7 @@ var Aiming = (function () {
             function animation() {
                 if (isSpacePressed) {
                     deferred.resolve();
+                    return;
                 }
                 else {
                     hindsight.setX(calculateXForMovingTheHindsightOnTheLine());

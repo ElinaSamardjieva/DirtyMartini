@@ -25,6 +25,7 @@ var Shooting = (function () {
             function animation() {
                 if (arrow.getX() - (hitPointObject.x - arrow.height() / 2) < 1) { // when arrow hits targetPoint
                     deferred.resolve(hitPointObject);
+                    return;
                 }
                 else {
                     arrow.setX(arrow.getX() + DELTA_X);
