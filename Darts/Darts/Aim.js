@@ -139,7 +139,7 @@ var Aiming = (function () {
                     // aiming is done and returns target coordinates
                     var hitPoint = calculateHitPoint();
                     // remove olive   
-                    hindsight.opacity(0);            
+                    //hindsight.opacity(0);            
                     deferred.resolve(hitPoint);
                     return;
                 }
