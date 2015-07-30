@@ -122,7 +122,7 @@ var gameCreator = (function() {
 
 			substractScore: function(value) {
 				validators.validateNonNegativeNumber(value);
-				if (this._score - value >= 0 && this._score !== 1) {
+				if (this._score - value >= 0 && this._score - value !== 1) {
 					this._score -= value;
 				}
 			},

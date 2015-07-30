@@ -16,7 +16,7 @@ var gameLoop = (function () {
                     .then(Aiming.setPower)
                     .then(Shooting.shoot)
                     .then(function (hitPointsObject) {
-                        var pointsToSubstract = 2;//determinePointsForShot.determineSector(hitPointsObject);                        
+                        var pointsToSubstract = determinePointsForShot.determineSector(hitPointsObject);                        
                         newGame._playerOnMove.substractScore(pointsToSubstract);
                         scoreBoard.update();
                         if (newGame._playerOnMove._score <= 0) {
