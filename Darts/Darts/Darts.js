@@ -11,7 +11,8 @@ var TARGET_RADIUS = 250,
     soundImage,
     isSoundOn = true,
     finalSound,
-    soundMuteImage;
+    soundMuteImage,
+    backgroundMusic;
     
 stage = new Kinetic.Stage({
     container: 'container',
@@ -84,5 +85,5 @@ stage.add(bgLayer);
 stage.add(targerLayer);
 stage.add(secondLayer);
 
-var backgroundMusic = new Audio('music/background.mp3');
+backgroundMusic = new Audio('music/background.mp3');
 backgroundMusic.play();
