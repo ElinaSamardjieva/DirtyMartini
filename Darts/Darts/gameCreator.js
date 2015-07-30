@@ -34,67 +34,67 @@ var gameCreator = (function() {
 	game = (function() {
 		var playerOnMoveIndex = 0,
 			game = {
-			init: function() {
-				this._players = [];
-				this._playerOnMove = null;
+				init: function() {
+					this._players = [];
+					this._playerOnMove = null;
 
-				return this;
-			},
+					return this;
+				},
 
-			get playerOnMove() {
-				return this._playerOnMove;
-			},
+				get playerOnMove() {
+					return this._playerOnMove;
+				},
 
-			set playerOnMove(value) {
-				if (player === null) {
-					throw new Error('Invalid null player cannot be set as current player on move');
-				}
+				set playerOnMove(value) {
+					if (player === null) {
+						throw new Error('Invalid null player cannot be set as current player on move');
+					}
 
-				this._playerOnMove = value;
-			},
+					this._playerOnMove = value;
+				},
 
-			get players(){
-				return this._players;
-			},
+				get players(){
+					return this._players;
+				},
 
-			addPlayer: function(name) {
-				validators.validateStringLength(name, 2, 10, 'Player name');
-				var numberOfPalyers = this._players.Length;
-				if (numberOfPalyers > 0) {
-					for (var i = 0; i < numberOfPalyers; i++) {
-						if (value === this._players[i]) {
-							throw new Error('A plyer with name ' + name + ' already exist');
+				addPlayer: function(name) {
+					validators.validateStringLength(name, 2, 10, 'Player name');
+					var numberOfPalyers = this._players.Length;
+					if (numberOfPalyers > 0) {
+						for (var i = 0; i < numberOfPalyers; i++) {
+							if (value === this._players[i]) {
+								throw new Error('A plyer with name ' + name + ' already exist');
+							}
 						}
 					}
+					this._players.push(player.get(name));
+				},
+
+				// Sets the first added player as playerOnMove
+				startGame: function() {
+					var numberOfPlayers = this._players.length;
+
+					if (numberOfPlayers === 0) {
+						throw new Error('No players in the game.');
+					}
+
+					playerOnMoveIndex = 0;
+
+					this.playerOnMove = this._players[playerOnMoveIndex];
+				},
+
+				// Sets the next player as playerOnMove (rotates the players list);
+				// Resets the player shots left.
+				nextPlayer: function() {
+					if (this._playerOnMove === null) {
+						throw new Error('No active player.');
+					}
+
+					playerOnMoveIndex = (playerOnMoveIndex + 1) % (this._players.length);
+					this.playerOnMove = this._players[playerOnMoveIndex];
+					this.playerOnMove.shotsLeft = shotsPerRound;
 				}
-				this._players.push(player.get(name));
-			},
-
-			// Sets the first added player as playerOnMove
-			startGame: function() {
-				var numberOfPlayers = this._players.length;
-
-				if (numberOfPlayers === 0) {
-					throw new Error('No players in the game.');
-				}
-
-				playerOnMoveIndex = 0;
-
-				this.playerOnMove = this._players[playerOnMoveIndex];
-			},
-
-			// Sets the next player as playerOnMove (rotates the players list);
-			// Resets the player shots left.
-			nextPlayer: function() {
-				if (this._playerOnMove === null) {
-					throw new Error('No active player.');
-				}
-
-				playerOnMoveIndex = (playerOnMoveIndex + 1) % (this._players.length);
-				this.playerOnMove = this._players[playerOnMoveIndex];
-				this.playerOnMove.shotsLeft = shotsPerRound;
-			}
-		};
+			};
 
 		return {
 			get: function() {
@@ -131,7 +131,15 @@ var gameCreator = (function() {
 				return this._score;
 			},
 
-		2
+			// Finds all winning shots combinations for the shots left and returns array
+			getWinningShots: function() {
+				var winningShots = [];
+
+				validators.validateNonNegativeNumber(this.shotsLeft);
+
+				findWinningShots(this.shotsLeft, this._score, 0, [], winningShots);
+				return winningShots;
+			}
 		};
 
 		function findWinningShots(shotsLeft, score, left, shotCombination, result) {
