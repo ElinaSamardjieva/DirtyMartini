@@ -58,7 +58,7 @@ var gameCreator = (function() {
 				},
 
 				addPlayer: function(name) {
-					validators.validateStringLength(name, 2, 10, 'Player name');
+					validators.validateStringLength(name, 1, 20, 'Player name');
 					var numberOfPalyers = this._players.Length;
 					if (numberOfPalyers > 0) {
 						for (var i = 0; i < numberOfPalyers; i++) {

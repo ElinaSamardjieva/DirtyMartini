@@ -14,30 +14,30 @@ var Aiming = (function () {
             fill: 'black',
             stroke: 'black'
         });
+
+
+
+    hindsight = new Kinetic.Circle({
+        x: 0,
+        y: 0,
+        radius: HINDSIGHT_RADIUS
+    });
         
-
-
-        hindsight = new Kinetic.Circle({
-            x: 0,
-            y: 0,
-            radius: HINDSIGHT_RADIUS
+    // making hindsight bakcground
+    hindsightBackground = new Image();
+    hindsightBackground.src = 'images/olive.png';
+    hindsightBackground.onload = function () {
+        hindsight.setFillPatternImage(hindsightBackground);
+        hindsight.fillPatternScale({
+            x: HINDSIGHT_IMAGE_SCALE,
+            y: HINDSIGHT_IMAGE_SCALE
         });
-        
-        // making hindsight bakcground
-        hindsightBackground = new Image();
-        hindsightBackground.src = 'images/olive.png';
-        hindsightBackground.onload = function () {
-            hindsight.setFillPatternImage(hindsightBackground);
-            hindsight.fillPatternScale({
-                x: HINDSIGHT_IMAGE_SCALE,
-                y: HINDSIGHT_IMAGE_SCALE
-            });
 
-            hindsight.fillPatternOffset({
-                x: HINDSIGHT_IMAGE_OFFSET,
-                y: HINDSIGHT_IMAGE_OFFSET
-            });
-        };
+        hindsight.fillPatternOffset({
+            x: HINDSIGHT_IMAGE_OFFSET,
+            y: HINDSIGHT_IMAGE_OFFSET
+        });
+    };
 
     function calculateHitPoint() {
         var hitPointX = hindsight.getX(),
@@ -48,27 +48,27 @@ var Aiming = (function () {
     }
 
     return {
-        initialize: function initialize() {                       
-            
+        initialize: function initialize() {
+
             powerBar.x(stage.getWidth() * 67 / 100);
             powerBar.y(stage.getHeight() * 20 / 100);
             powerBar.width(stage.getWidth() * 4 / 100);
             powerBar.height(stage.getHeight() * 60 / 100);
             powerBar.fillLinearGradientStartPoint({ x: 0, y: 0 });
-            powerBar.fillLinearGradientEndPoint({ x: 0, y: stage.getHeight() * 60 / 100 });            
-            
+            powerBar.fillLinearGradientEndPoint({ x: 0, y: stage.getHeight() * 60 / 100 });
+
             powerSlider.x(powerBar.getX() - 5);
             powerSlider.y(stage.height() / 2);
             powerSlider.width(powerBar.width() + 10);
             powerSlider.height(POWERSLIDER_HEIGHT);
-            
-            secondLayer.clear();                
+
+            secondLayer.clear();
             secondLayer.add(hindsight);
             secondLayer.add(powerBar);
             secondLayer.add(powerSlider);
-            
+
             hindsight.opacity(1);
-            
+
             return Q();
         },
         // This function animates hindsight movement around the target and stops it on keypress
@@ -98,10 +98,10 @@ var Aiming = (function () {
                        
                     // Updating the angle to change the position of the ball on the orbit
                     angle += Math.PI / HINDSIGHT_MOVING_SPEED;
-                    
+
                     secondLayer.draw();
                 }
-                
+
                 requestAnimationFrame(animation);
             }
 
@@ -110,9 +110,12 @@ var Aiming = (function () {
                     isSpacePressed = true;
                 }
             });
+            
+            window.addEventListener("click", function (event) {
+                isSpacePressed = true;
+            });
 
             animation();
-            
             return deferred.promise;
         },
         // This function animates power bar movement and stops it on keypress
@@ -141,7 +144,7 @@ var Aiming = (function () {
                     // aiming is done and returns target coordinates
                     var hitPoint = calculateHitPoint();
                     // remove olive   
-                    hindsight.opacity(0);            
+                    hindsight.opacity(0);
                     deferred.resolve(hitPoint);
                     return;
                 }
@@ -157,9 +160,11 @@ var Aiming = (function () {
                 if (event.keyCode === 32) {
                     isSpacePressed = true;
                 }
-            });           
-
-            //secondLayer.add(hindsight);
+            });
+            
+            window.addEventListener("click", function (event) {
+                isSpacePressed = true;
+            });
             
             animation();
             return deferred.promise;
@@ -173,7 +178,7 @@ var Aiming = (function () {
                 endPointX = TARGET_CENTER_X * 2 - startPointX,
                 endPointY = TARGET_CENTER_Y * 2 - startPointY,
                 isSpacePressed = false;
-                
+
             secondLayer.add(hindsight);
                 
             // moving logic
@@ -218,6 +223,10 @@ var Aiming = (function () {
                 if (event.keyCode === 32) {
                     isSpacePressed = true;
                 }
+            });
+            
+            window.addEventListener("click", function (event) {
+                isSpacePressed = true;
             });
 
             animation();
