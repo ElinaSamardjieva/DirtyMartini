@@ -1,28 +1,30 @@
 // aiming logic
 var Aiming = (function () {
-    var hindsight,
+    var HINDSIGHT_RADIUS = 21,
+        HINDSIGHT_IMAGE_SCALE = 0.08,
+        HINDSIGHT_IMAGE_OFFSET = 250,
+        POWERSLIDER_HEIGHT = 5,
+        hindsightBackground,
+        hindsight,
         powerBar = new Kinetic.Rect({
             stroke: 'black',
-            fillLinearGradientColorStops: [0, 'red', 0.5, 'rgb(37,204,4)', 1, 'yellow'],
+            fillLinearGradientColorStops: [0, 'red', 0.5, 'rgb(37,204,4)', 1, 'yellow']
         }),
         powerSlider = new Kinetic.Rect({
             fill: 'black',
             stroke: 'black'
         });
         
-        var HINDSIGHT_RADIUS = 21,
-            HINDSIGHT_IMAGE_SCALE = 0.08,
-            HINDSIGHT_IMAGE_OFFSET = 250,
-            POWERSLIDER_HEIGHT = 5;
+
 
         hindsight = new Kinetic.Circle({
             x: 0,
             y: 0,
-            radius: HINDSIGHT_RADIUS,
+            radius: HINDSIGHT_RADIUS
         });
         
         // making hindsight bakcground
-        var hindsightBackground = new Image();
+        hindsightBackground = new Image();
         hindsightBackground.src = 'images/olive.png';
         hindsightBackground.onload = function () {
             hindsight.setFillPatternImage(hindsightBackground);
@@ -35,7 +37,7 @@ var Aiming = (function () {
                 x: HINDSIGHT_IMAGE_OFFSET,
                 y: HINDSIGHT_IMAGE_OFFSET
             });
-        }
+        };
 
     function calculateHitPoint() {
         var hitPointX = hindsight.getX(),
@@ -103,7 +105,7 @@ var Aiming = (function () {
                 }
                 
                 requestAnimationFrame(animation);
-            };
+            }
 
             window.addEventListener("keydown", function (event) {
                 if (event.keyCode === 32) {
@@ -151,7 +153,7 @@ var Aiming = (function () {
 
                 secondLayer.draw();
                 requestAnimationFrame(animation);
-            };
+            }
 
             window.addEventListener("keydown", function (event) {
                 if (event.keyCode === 32) {
@@ -212,7 +214,7 @@ var Aiming = (function () {
 
                 secondLayer.draw();
                 requestAnimationFrame(animation);
-            };
+            }
 
             window.addEventListener("keydown", function (event) {
                 if (event.keyCode === 32) {
