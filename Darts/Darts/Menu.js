@@ -37,8 +37,8 @@
     startGame = function () {
         var menu = document.getElementById('menu'),
             container = document.getElementById('container'),
-            firstPlayerName = $("#player-one").val(),
-            secondPlayerName = $("#player-two").val();
+            firstPlayerName = $("#player-one").val() || 'Player 1',
+            secondPlayerName = $("#player-two").val() || 'Player 2';
         
         menu.style.display = 'none';
         container.style.display = 'block';
