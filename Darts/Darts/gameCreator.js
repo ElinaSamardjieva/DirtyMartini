@@ -3,9 +3,11 @@ var gameCreator = (function() {
 		playerStartingScore = 50,
 		possibleShots = [2, 3, 4, 6, 8, 9, 10, 12, 15],
 		maxShot = 15,
-		shotsPerRound = 3;
+		shotsPerRound = 3,
+		validators,
+		game;
 
-	var validators = {
+	validators = {
 		validateNonNullableString: function(value, variableName) {
 			if (value === null || typeof(value) !== 'string') {
 				throw new Error(variableName + ' must be a valid string.');
@@ -30,10 +32,9 @@ var gameCreator = (function() {
 		}
 	};
 
-	var game = (function() {
-		var playerOnMoveIndex = 0;
-
-		var game = {
+	game = (function() {
+		var playerOnMoveIndex = 0,
+			game = {
 			init: function() {
 				if (gameAvailable) {
 					throw new Error('Game already exist.');
@@ -113,7 +114,7 @@ var gameCreator = (function() {
 			init: function(name) {
 				this.name = name;
 				this._score = playerStartingScore;
-				this._shotsLeft = null;
+				this._shotsLeft = 3;
 				return this;
 			},
 
@@ -157,8 +158,8 @@ var gameCreator = (function() {
 			}
 
 			for (var i = left; i < possibleShots.length; i++) {
-				var newScore = score - possibleShots[i];
-				var newShotCombination = shotCombination.slice();
+				var newScore = score - possibleShots[i],
+					newShotCombination = shotCombination.slice();
 				newShotCombination.push(possibleShots[i]);
 				if (newScore >= 0 && (newScore - shotsLeft * maxShot) <= 0) {
 					findWinningShots(shotsLeft - 1, newScore, i, newShotCombination, result);
@@ -183,22 +184,5 @@ var gameCreator = (function() {
 		}
 	};
 })();
-
-
-
-// Example:
-// var newGame = gameCreator.createNewGame();
-// newGame.addPlayer('Pesho');
-// newGame.addPlayer('Ivan');
-// newGame.addPlayer('Gosho');
-// newGame.startGame(); // This 
-// newGame._playerOnMove.substractScore(20);
-// newGame.nextPlayer();
-// newGame._playerOnMove.substractScore(20);
-// newGame.nextPlayer();
-// newGame.nextPlayer();
-// newGame.playerOnMove.shotsLeft = 3;
-// console.log(newGame.playerOnMove.getWinningShots().join('\n'));
-// debugger;
 
 module.exports = gameCreator;
