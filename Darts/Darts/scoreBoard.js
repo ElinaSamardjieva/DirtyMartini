@@ -74,4 +74,4 @@ playerOneScores = {score: 12};
 playerTwoScores = {score: 10};
 
 
-svgDisplay(1012, 8, 348, 595, playerOneName, playerTwoName, playerOneScores, playerTwoScores);
+svgDisplay(1012, 10, 348, 595, playerOneName, playerTwoName, playerOneScores, playerTwoScores);
