@@ -75,18 +75,18 @@ var Aiming = (function () {
         },
         // This function animates hindsight movement around the target and stops it on keypress
         setAngle: function setAngle() {
-            var ORBIT_RADIUS = targetRadius + 38,
+            var ORBIT_RADIUS = TARGET_RADIUS + 38,
                 HINDSIGHT_MOVING_SPEED = 50,
                 deferred = Q.defer(),
                 angle = 0, // The start angle with which the ball is going to change it's position
                 isSpacePressed = false;
 
             function calculateXForMovingTheBallInTheOrbit() {
-                return targetCenterX + ORBIT_RADIUS * Math.cos(angle);
+                return TARGET_CENTER_X + ORBIT_RADIUS * Math.cos(angle);
             }
 
             function calculateYForMovingTheBallInTheOrbit() {
-                return targetCenterY + ORBIT_RADIUS * Math.sin(angle);
+                return TARGET_CENTER_Y + ORBIT_RADIUS * Math.sin(angle);
             }
 
             function animation() {
@@ -172,8 +172,8 @@ var Aiming = (function () {
                 deferred = Q.defer(),
                 startPointX = hindsight.getX(),
                 startPointY = hindsight.getY(),
-                endPointX = targetCenterX * 2 - startPointX,
-                endPointY = targetCenterY * 2 - startPointY,
+                endPointX = TARGET_CENTER_X * 2 - startPointX,
+                endPointY = TARGET_CENTER_Y * 2 - startPointY,
                 isSpacePressed = false;
                 
             secondLayer.add(hindsight);
@@ -186,7 +186,7 @@ var Aiming = (function () {
                         + Math.pow(hindsight.getY() - startPointY, 2));
                             
                 // if hindsight gets to the end change direction
-                if (hindsightDistanceFromStartingPoint >= 2 * (targetRadius + 20)) {
+                if (hindsightDistanceFromStartingPoint >= 2 * (TARGET_RADIUS + 20)) {
                     var bufferX = startPointX,
                         bufferY = startPointY;
                     startPointX = endPointX;

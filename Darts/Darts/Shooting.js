@@ -8,8 +8,8 @@ var Shooting = (function () {
 			
 			// initial position is down right from target
 			var arrow = new Kinetic.Circle({
-    				x: targetCenterX + targetRadius,
-    				y: targetCenterY + targetRadius / Math.sqrt(2),
+    				x: TARGET_CENTER_X + TARGET_RADIUS,
+    				y: TARGET_CENTER_Y + TARGET_RADIUS / Math.sqrt(2),
     				radius: 70,
                     fillPatternImage: arrowBackground,
                     fillPatternOffset: { x: 250, y: 250},

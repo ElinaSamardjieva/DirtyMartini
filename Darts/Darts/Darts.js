@@ -1,14 +1,15 @@
 ﻿//can be changed later. This values are for testing
-var targetRadius = 250,
-    targetCenterX = 500,
-    targetCenterY = 300,
+var TARGET_RADIUS = 250,
+    TARGET_CENTER_X = 500,
+    TARGET_CENTER_Y = 300,
     stage,
     bgLayer,
     secondLayer,
     boardImage,
     targetImage,
     targerLayer,
-    soundImage;
+    soundImage,
+    soundMuteImage;
     
 stage = new Kinetic.Stage({
     container: 'container',
@@ -38,6 +39,22 @@ boardImage.onload = function () {
     bgLayer.draw();
 };
 
+soundImage = new Image();
+
+soundImage.onload = function() {
+    var button = new Kinetic.Image({
+        x: 30,
+        y: 30,
+        height: 50,
+        width:50,
+        image: soundImage
+    });
+    bgLayer.add(button);
+    bgLayer.draw();
+};
+
+soundMuteImage = new Image();
+
 //Adding the target image in the second layer
 targetImage = new Image();
 targetImage.onload = function () {
@@ -52,10 +69,15 @@ targetImage.onload = function () {
     targerLayer.draw();
 };
 
+targetImage.onclick = function () {
 
+}
+
+soundMuteImage.src = 'images/SpeakerIcon_Mute.png';
 boardImage.src = 'images/background.png';   
 targetImage.src = 'images/target.png';
-boardCanvas.drawBoard(targetCenterX, targetCenterY, targetRadius);
+soundImage.src = 'images/SpeakerIcon.png';
+boardCanvas.drawBoard(TARGET_CENTER_X, TARGET_CENTER_Y, TARGET_RADIUS);
 stage.add(bgLayer);
 stage.add(targerLayer);
 stage.add(secondLayer);
