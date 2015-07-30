@@ -1,6 +1,5 @@
 var gameCreator = (function() {
-	var gameAvailable = false, // needed to avoid second game insciation;
-		playerStartingScore = 50,
+	var playerStartingScore = 50,
 		possibleShots = [2, 3, 4, 6, 8, 9, 10, 12, 15],
 		maxShot = 15,
 		shotsPerRound = 3,
@@ -36,11 +35,6 @@ var gameCreator = (function() {
 		var playerOnMoveIndex = 0,
 			game = {
 			init: function() {
-				if (gameAvailable) {
-					throw new Error('Game already exist.');
-				}
-
-				gameAvailable = true;
 				this._players = [];
 				this._playerOnMove = null;
 

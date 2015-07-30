@@ -40,7 +40,10 @@ var gameLoop = (function () {
                     winnerName = $("#winner-name");
 
                 container.hide();
+                secondLayer.removeChildren();
+                scoreBoard.clearPaper();
                 winnerName.text(winner);
+
                 endGameScreen.show();
             }
         }

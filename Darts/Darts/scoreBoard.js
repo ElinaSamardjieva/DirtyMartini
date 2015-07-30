@@ -22,7 +22,7 @@ var scoreBoard = (function () {
             paper = Raphael(x, y, width, height);
             board = paper.rect(0, 0, width, height, 50);
             board.attr('fill', 'rgba(200,200,200,0.7)');
-            board.attr({ 'stroke-width': 0, 'stroke': "#fff" });
+            board.attr({'stroke-width': 0, 'stroke': "#fff"});
             path1 = "M0 50 H" + width;
             path2 = "M" + width / 2 + " 0 V" + height;
             horziontalLine = paper.path(path1);
@@ -39,22 +39,26 @@ var scoreBoard = (function () {
             scorePlayerOne.attr('text', player1.score);
             scorePlayerTwo.attr('text', player2.score);
             requestAnimationFrame(update);
+        },
+
+        clearPaper: function clearPaper() {
+            paper.clear();
         }
-    }
+    };
 
-    function addPlayerName(name, playerNumber) {
-        var name = paper.text(80 + (playerNumber - 1) * width / 2, 25, name);
-        name.attr({ "font-size": 28, "font-family": "Broadway" });
-        name.attr('fill', '#000');
-        name.attr('stroke', '#000');
+        function addPlayerName(name, playerNumber) {
+            var name = paper.text(80 + (playerNumber - 1) * width / 2, 25, name);
+            name.attr({"font-size": 28, "font-family": "Broadway"});
+            name.attr('fill', '#000');
+            name.attr('stroke', '#000');
 
-        return name;
-    }
+            return name;
+        }
 
     function addPlayerScore(playerNumber) {
         var t = paper.text(80 + (playerNumber - 1) * width / 2, 90, '0');
         t.attr('text', 0);
-        t.attr({ "font-size": 28, "font-family": "Broadway" });
+        t.attr({"font-size": 28, "font-family": "Broadway"});
         t.attr('fill', '#000');
         t.attr('stroke', '#000');
 
@@ -68,4 +72,4 @@ var scoreBoard = (function () {
     if (player2.score == undefined) {
         throw new Error('PlayerTwo does not have score!');
     }
-} ());
+}());
