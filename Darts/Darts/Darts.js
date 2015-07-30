@@ -8,7 +8,9 @@ var targetRadius = 250,
     boardImage,
     targetImage,
     targerLayer,
-    soundImage;
+    soundImage,
+    isSoundOn = true,
+    finalSound;
     
 stage = new Kinetic.Stage({
     container: 'container',
@@ -59,3 +61,6 @@ boardCanvas.drawBoard(targetCenterX, targetCenterY, targetRadius);
 stage.add(bgLayer);
 stage.add(targerLayer);
 stage.add(secondLayer);
+
+var backgroundMusic = new Audio('music/background.mp3');
+backgroundMusic.play();

@@ -5,9 +5,10 @@ var Shooting = (function () {
             var deferred = Q.defer(),
                 arrowBackground = new Image(); // making arrow background
             arrowBackground.src = 'images/olive.png';
-            var splashSound = new Audio('music/splash.mp3');
-            setTimeout(function(){ splashSound.play(); }, 500);
-            
+            if (isSoundOn) {                
+                var splashSound = new Audio('music/splash.mp3');
+                setTimeout(function(){ splashSound.play(); }, 500);
+            }            
 			
 			// initial position is down right from target
 			var arrow = new Kinetic.Circle({

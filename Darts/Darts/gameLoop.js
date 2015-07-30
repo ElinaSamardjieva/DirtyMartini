@@ -16,7 +16,7 @@ var gameLoop = (function () {
                     .then(Aiming.setPower)
                     .then(Shooting.shoot)
                     .then(function (hitPointsObject) {
-                        var pointsToSubstract = determinePointsForShot.determineSector(hitPointsObject);                        
+                        var pointsToSubstract = 2;//determinePointsForShot.determineSector(hitPointsObject);                        
                         newGame._playerOnMove.substractScore(pointsToSubstract);
                         scoreBoard.update();
                         if (newGame._playerOnMove._score <= 0) {
@@ -44,6 +44,12 @@ var gameLoop = (function () {
                 scoreBoard.clearPaper();
                 winnerName.text(winner);
                 endGameScreen.show();
+                
+                if (isSoundOn) {                   
+                    finalSound = new Audio('music/final.mp3');
+                    backgroundMusic.pause();
+                    finalSound.play();
+                }
             }
         }
     }
