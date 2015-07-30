@@ -42,9 +42,7 @@ var Aiming = (function () {
     function calculateHitPoint() {
         var hitPointX = hindsight.getX(),
             power = stage.height() / 2 - powerSlider.getY(),
-            hitPointY = hindsight.getY() - power +
-                (hindsight.getHeight() / 2) +
-                (hindsight.getWidth() / 2);
+            hitPointY = hindsight.getY() - power;
 
         return { x: hitPointX, y: hitPointY };
     }
