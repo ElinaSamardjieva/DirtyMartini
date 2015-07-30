@@ -50,14 +50,14 @@
             menu = document.getElementById('menu'),
             rulesDiv = $('<div id="rules"><h3>Rules:</h3><strong>Welcome to the Dirty Martiny Darts Game!</strong><br/></div>')
                          .appendTo('#menu'),
-            rulesParagraph = $('<p />').text('The game is played by two players. The object of the game is one of the players' +
-                                             ' to be the first to reach zerofrom starting total of 301. Each round every player' +
-                                             ' has 3 darts to throw at the board and the score he hits is substracted of his current' +
-                                             'score. Example: If player one has 30 points left he must hit exactly 30 to win ' +
-                                             '(25 and 5, three times 10 etc.). If he hits more than 30 points with his three darts,' +
-                                             ' his score remains to be 30 and gives the turn to the second player. In simple terms,' +
-                                             'after three darts are thrown, the throwing player subtracts the total score from his' +
-                                             ' current total until he reaches zero.').appendTo('#rules'),
+            rulesParagraph = $('<p />').text('The rules of the game are very simple. They are very similar to the classic darts game.' +
+                                             ' The difference is that the target you are hitting is not a dartboard, but a martini glass' +
+                                             ' and you are throwing not arrows, but olives. The game is played by two players. The object' +
+                                             ' of the game is one of the players to be the first to reach zero from starting total of 50.' +
+                                             ' Each round every player has 3 olives to throw at the martini glass and the score he hits is' +
+                                             ' substracted of his current score. If a player hits a bigger number than his score,' +
+                                             ' his score stays the same and he must throw again if he has shots left or he gives the turn to the' +
+                                             ' second player. Enjoy the game!').appendTo('#rules'),
             backButton1 = $('<button id="backButton" />')
             .text('Back')
             .appendTo('#menu');
