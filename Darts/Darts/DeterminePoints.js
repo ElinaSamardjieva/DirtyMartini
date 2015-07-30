@@ -2,7 +2,8 @@ var determinePointsForShot = function () {
 
     return {
         determineSector: function (hitPoint) {
-            var sectors = stage.getAllIntersections(hitPoint),
+            var MINIMUM_OBJECTS_ON_CANVAS = 3,
+            sectors = stage.getAllIntersections(hitPoint),
                 lemonColors = {'gray': 1, 'yellow': 2, 'cyan': 3, 'orange': 4, 'green': 5},
                 pointsToSubstract = 0,
                 isInLemon,
@@ -38,7 +39,7 @@ var determinePointsForShot = function () {
                 return value.attrs.fill === 'black';
             });
 
-            isInTarget = sectors.length > 1;
+            isInTarget = sectors.length > MINIMUM_OBJECTS_ON_CANVAS;
 
             // Based on sector priority, return the points for substraction for the player.
 

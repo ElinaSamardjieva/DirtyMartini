@@ -7,7 +7,8 @@ var targetRadius = 250,
     secondLayer,
     boardImage,
     targetImage,
-    targerLayer;
+    targerLayer,
+    soundImage;
     
 stage = new Kinetic.Stage({
     container: 'container',
