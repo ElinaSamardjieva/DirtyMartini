@@ -64,12 +64,4 @@ var scoreBoard = (function () {
 
         return t;
     }
-
-    if (player1.score == undefined) {
-        throw new Error('PlayerOne does not have score!');
-    }
-
-    if (player2.score == undefined) {
-        throw new Error('PlayerTwo does not have score!');
-    }
 }());

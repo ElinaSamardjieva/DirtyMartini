@@ -19,7 +19,7 @@ var gameLoop = (function () {
                         var pointsToSubstract = determinePointsForShot.determineSector(hitPointsObject);                        
                         newGame._playerOnMove.substractScore(pointsToSubstract);
                         scoreBoard.update();
-                        if (newGame._playerOnMove._score <= 1) {
+                        if (newGame._playerOnMove._score <= 0) {
                             endGame(newGame._playerOnMove.name);
                             return;
                         }
@@ -43,7 +43,6 @@ var gameLoop = (function () {
                 secondLayer.removeChildren();
                 scoreBoard.clearPaper();
                 winnerName.text(winner);
-
                 endGameScreen.show();
             }
         }
