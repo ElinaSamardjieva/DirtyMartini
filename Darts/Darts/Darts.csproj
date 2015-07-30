@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Aim.js" />
+    <Content Include="audioPlayer.css" />
     <Content Include="gameFactory.js" />
     <Content Include="images\fireworks.gif" />
     <Content Include="images\Thumbs.db" />
