@@ -33,11 +33,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Darts.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Darts.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Darts/Darts.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-3.709091">
-                  <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+                <state vertical-scroll-proportion="0.8768116">
+                  <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
                   <folding />
                 </state>
               </provider>
@@ -103,10 +103,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="gameCreator.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="gameCreator.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Darts/gameCreator.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="3.2487645">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="116" column="36" selection-start-line="116" selection-start-column="36" selection-end-line="116" selection-end-column="36" />
                   <folding />
                 </state>
@@ -738,14 +738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Darts/Darts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.709091">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Darts/DeterminePoints.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -788,8 +780,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Darts/gameCreator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.2487645">
+        <state vertical-scroll-proportion="0.0">
           <caret line="116" column="36" selection-start-line="116" selection-start-column="36" selection-end-line="116" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Darts/Darts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8768116">
+          <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
           <folding />
         </state>
       </provider>
