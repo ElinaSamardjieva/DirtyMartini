@@ -69,10 +69,6 @@ targetImage.onload = function () {
     targerLayer.draw();
 };
 
-targetImage.onclick = function () {
-
-}
-
 soundMuteImage.src = 'images/SpeakerIcon_Mute.png';
 boardImage.src = 'images/background.png';   
 targetImage.src = 'images/target.png';

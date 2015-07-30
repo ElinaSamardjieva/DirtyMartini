@@ -131,15 +131,7 @@ var gameCreator = (function() {
 				return this._score;
 			},
 
-			// Finds all winning shots combinations for the shots left and returns array
-			getWinningShots: function() {
-				var winningShots = [];
-
-				validators.validateNonNegativeNumber(this.shotsLeft);
-
-				findWinningShots(this.shotsLeft, this._score, 0, [], winningShots);
-				return winningShots;
-			}
+		2
 		};
 
 		function findWinningShots(shotsLeft, score, left, shotCombination, result) {
