@@ -10,7 +10,7 @@ var targetRadius = 250,
 
 stage = new Kinetic.Stage({
     container: 'container',
-    width: 1000,
+    width: 1355,
     height: 600
 });
 

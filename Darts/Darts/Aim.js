@@ -52,7 +52,7 @@ var Aiming = (function () {
     return {
         initialize: function initialize() {                       
             
-            powerBar.x(stage.getWidth() * 90 / 100);
+            powerBar.x(stage.getWidth() * 90 / 100 - 300);
             powerBar.y(stage.getHeight() * 20 / 100);
             powerBar.width(stage.getWidth() * 5 / 100);
             powerBar.height(stage.getHeight() * 60 / 100);
