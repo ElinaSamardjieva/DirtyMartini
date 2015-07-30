@@ -115,6 +115,9 @@
 
         endGameScreen.style.display = 'none';
         menu.style.display = 'block';
+        finalSound.pause();
+        backgroundMusic.currentTime = 0;
+        backgroundMusic.play();
     };
 
     exitTheEndScreen = function () {
