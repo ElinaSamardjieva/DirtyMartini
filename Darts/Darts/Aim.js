@@ -52,9 +52,9 @@ var Aiming = (function () {
     return {
         initialize: function initialize() {                       
             
-            powerBar.x(stage.getWidth() * 90 / 100 - 300);
+            powerBar.x(stage.getWidth() * 67 / 100);
             powerBar.y(stage.getHeight() * 20 / 100);
-            powerBar.width(stage.getWidth() * 5 / 100);
+            powerBar.width(stage.getWidth() * 4 / 100);
             powerBar.height(stage.getHeight() * 60 / 100);
             powerBar.fillLinearGradientStartPoint({ x: 0, y: 0 });
             powerBar.fillLinearGradientEndPoint({ x: 0, y: stage.getHeight() * 60 / 100 });            

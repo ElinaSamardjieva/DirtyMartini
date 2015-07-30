@@ -6,8 +6,9 @@ var targetRadius = 250,
     bgLayer,
     secondLayer,
     boardImage,
-    targetImage;
-
+    targetImage,
+    targerLayer;
+    
 stage = new Kinetic.Stage({
     container: 'container',
     width: 1355,
@@ -20,6 +21,8 @@ bgLayer = new Kinetic.Layer();
 // On the second layer there will be the moving circle
 secondLayer = new Kinetic.Layer();
 
+targerLayer = new Kinetic.Layer();
+
 //Adding the dartboard image on the first layer
 boardImage = new Image();
 boardImage.onload = function () {
@@ -30,7 +33,6 @@ boardImage.onload = function () {
         width: stage.width(),
         height: stage.height()
     });
-
     bgLayer.add(board);
     bgLayer.draw();
 };
@@ -45,16 +47,14 @@ targetImage.onload = function () {
         height: 760,
         image: targetImage
     });
-    secondLayer.add(target);
-    secondLayer.draw();
+    targerLayer.add(target);
+    targerLayer.draw();
 };
 
-targetImage.src = 'images/target.png';
 
+boardImage.src = 'images/background.png';   
+targetImage.src = 'images/target.png';
 boardCanvas.drawBoard(targetCenterX, targetCenterY, targetRadius);
 stage.add(bgLayer);
+stage.add(targerLayer);
 stage.add(secondLayer);
-
-gameLoop.gameInit();
-
-boardImage.src = 'images/background.png';

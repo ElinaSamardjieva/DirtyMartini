@@ -1,11 +1,12 @@
 var gameLoop = (function () {
     return {
-        gameInit: function () {
+        gameInit: function (firstPlayerName, secondPlayerName) {
             var newGame = gameCreator.createNewGame();
-            newGame.addPlayer('Ivancho');
-            newGame.addPlayer('Pesho'); // Add logic for naming players when it's done
+            newGame.addPlayer(firstPlayerName);
+            newGame.addPlayer(secondPlayerName); // Add logic for naming players when it's done
             newGame.startGame();
-
+            scoreBoard.create(newGame._players[0], newGame._players[1]);
+            scoreBoard.update();
             aimSequence();
 
             function aimSequence() {
@@ -15,19 +16,17 @@ var gameLoop = (function () {
                     .then(Aiming.setPower)
                     .then(Shooting.shoot)
                     .then(function (hitPointsObject) {
-                        var pointsToSubstract = determinePointsForShot.determineSector(hitPointsObject);
+                        var pointsToSubstract = determinePointsForShot.determineSector(hitPointsObject);                        
                         newGame._playerOnMove.substractScore(pointsToSubstract);
+                        scoreBoard.update();
                         if (newGame._playerOnMove._score <= 1) {
                             endGame(newGame._playerOnMove.name);
                             return;
                         }
                         newGame._playerOnMove.shotsLeft -= 1;
-                        console.log(newGame._playerOnMove.shotsLeft);
-                        // print score on SVG
-                        console.log(newGame._playerOnMove._score);
                         if (newGame._playerOnMove.shotsLeft <= 0) {
                             newGame.nextPlayer();
-                            console.log(newGame._playerOnMove.name);
+                            secondLayer.removeChildren();
                         }
 
                         aimSequence();

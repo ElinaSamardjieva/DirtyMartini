@@ -39,8 +39,10 @@
             container = document.getElementById('container'),
             firstPlayerName = $("#player-one").val(),
             secondPlayerName = $("#player-two").val();
+        
         menu.style.display = 'none';
         container.style.display = 'block';
+        gameLoop.gameInit(firstPlayerName, secondPlayerName);
     };
 
     showRules = function () {
