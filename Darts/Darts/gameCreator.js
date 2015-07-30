@@ -178,5 +178,3 @@ var gameCreator = (function() {
 		}
 	};
 })();
-
-module.exports = gameCreator;
