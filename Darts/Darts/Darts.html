@@ -4,20 +4,17 @@
 <head>
     <title>Dirty Martini Darts Game</title>
     <link href="Styles/Styles.css" rel="stylesheet"/>
-    <link href="Styles/Styles.css" rel="stylesheet" />
-    <script type="text/javascript" src="Libraries/q/q.js"></script>
     <script type="text/javascript" src="Libraries/q/q.js"></script>
     <script type="text/javascript" src="Libraries/kineticjs/kinetic.js"></script>
     <script type="text/javascript" src="Libraries/jQuery/jquery-2.1.4.js"></script>
     <script type="text/javascript" src="Libraries/raphaeljs/raphael.js"></script>
-
     <script src="Libraries/audiojs/audio.min.js"></script>
     <script>
         audiojs.events.ready(function () {
             var as = audiojs.createAll();
         });
     </script>
-    <link href="audioPlayer.css" rel="stylesheet" />
+    <link href="audioPlayer.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -42,42 +39,23 @@
     <div id="endMessages">
         <h1>Congratulations!</h1>
 
-        <h2><span id="winner-name">Player X</span> has won the game.</h2>
+        <h2><span>Player X</span> has won the game.</h2>
         <button id="newGame">New game</button>
         <button id="exit">Exit</button>
     </div>
-    <div id="container"></div>
-    <div id="endGameScreen">
-        <div id="endMessages">
-            <h1>Congratulations!</h1>
-            <h2><span>Player X</span> has won the game.</h2>
-            <button id="newGame">New game</button>
-            <button id="exit">Exit</button>
-        </div>
-        <img id="fireworks" src="images/fireworks.gif" />
-    </div>
-
-    <audio src="http://search.data.bg/download/ZGJnZGxfMjcyNjcyNw" preload="auto" loop="loop" />
-    <script src="DeterminePoints.js"></script>
-    <script src="Aim.js"></script>
-    <script src="gameCreator.js"></script>
-    <script src="Shooting.js"></script>
-    <script src="Menu.js"></script>
-    <script src="DrawBoard.js"></script>
-    <script src="gameLoop.js"></script>
-    <script src="Darts.js"></script>
-    <script src="scoreBoard.js"></script>
     <img id="fireworks" src="images/fireworks.gif"/>
 </div>
+
+<audio src="http://search.data.bg/download/ZGJnZGxfMjcyNjcyNw" preload="auto" loop="loop"/>
 <script src="DeterminePoints.js"></script>
 <script src="Aim.js"></script>
 <script src="gameCreator.js"></script>
 <script src="Shooting.js"></script>
-<script src="scoreBoard.js"></script>
 <script src="Menu.js"></script>
 <script src="DrawBoard.js"></script>
 <script src="gameLoop.js"></script>
 <script src="Darts.js"></script>
+<script src="scoreBoard.js"></script>
 
 </body>
 </html>
