@@ -111,7 +111,7 @@ var Aiming = (function () {
                 }
             });
             
-            window.addEventListener("click", function (event) {
+            document.addEventListener("click", function (event) {
                 isSpacePressed = true;
             });
 
