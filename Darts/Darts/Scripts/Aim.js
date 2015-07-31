@@ -111,13 +111,9 @@ var Aiming = (function () {
                 }
             });
             
-            $('#container').on('click', function(){
+            document.addEventListener("click", function (event) {
                 isSpacePressed = true;
             });
-            
-            // document.addEventListener("click", function (event) {
-            //     isSpacePressed = true;
-            // });
 
             animation();
             return deferred.promise;
@@ -166,14 +162,10 @@ var Aiming = (function () {
                 }
             });
             
-            $('#container').on('click', function(){
+            window.addEventListener("click", function (event) {
                 isSpacePressed = true;
             });
             
-            // window.addEventListener("click", function (event) {
-            //     isSpacePressed = true;
-            // });
-                       
             animation();
             return deferred.promise;
         },
@@ -233,11 +225,7 @@ var Aiming = (function () {
                 }
             });
             
-            // window.addEventListener("click", function (event) {
-            //     isSpacePressed = true;
-            // });
-            
-            $('#container').on('click', function(){
+            window.addEventListener("click", function (event) {
                 isSpacePressed = true;
             });
 
