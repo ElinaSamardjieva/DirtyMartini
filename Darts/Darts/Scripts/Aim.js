@@ -111,7 +111,7 @@ var Aiming = (function () {
                 }
             });
             
-            window.addEventListener("click", function (event) {
+            window.addEventListener("touchstart", function (event) {
                 isSpacePressed = true;
             });
 
@@ -162,7 +162,7 @@ var Aiming = (function () {
                 }
             });
             
-            window.addEventListener("click", function (event) {
+            window.addEventListener("touchstart", function (event) {
                 isSpacePressed = true;
             });
             
@@ -225,7 +225,7 @@ var Aiming = (function () {
                 }
             });
             
-            window.addEventListener("click", function (event) {
+            window.addEventListener("touchstart", function (event) {
                 isSpacePressed = true;
             });
 

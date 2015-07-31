@@ -45,6 +45,8 @@ boardImage.onload = function () {
     bgLayer.draw();
 };
 
+// adding the sound buttons
+
 soundImage = new Image();
 
 soundImage.onload = function () {
